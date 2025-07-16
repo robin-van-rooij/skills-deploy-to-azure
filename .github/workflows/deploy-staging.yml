@@ -1,0 +1,14 @@
+name: Stage the app
+
+# the workflow triggers on a pull request with a label
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # the job runs if the label of the pull request is 'stage'
+    if: contains(github.event.pull_request.labels.*.name, 'stage')
+  
