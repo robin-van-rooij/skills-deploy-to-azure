@@ -1,4 +1,9 @@
 name: Learning GitHub Script
+
+permissions:
+  issues: write
+  repository-projects: write
+  
 on:
   issues:
     types: [opened]
