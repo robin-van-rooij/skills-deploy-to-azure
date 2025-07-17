@@ -1,1 +1,1 @@
-🎉 You've created this issue comment using GitHub Script!!!
+:tada: You've created this issue comment using GitHub Script!!!
