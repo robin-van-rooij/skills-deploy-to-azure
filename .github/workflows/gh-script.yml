@@ -11,6 +11,14 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          installation_id: ${{ secrets.APP_INSTALLATION_ID }}
+            
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Comment on new issue
@@ -30,7 +38,7 @@ jobs:
         if: contains(github.event.issue.labels.*.name, 'bug')
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.MY_PAT }}
+          github-token: ${{ steps.app-token.outputs.token }}
           script: |
             const projectId = "PVT_kwHODJ7fcc4A-Idx";
             const issueId = context.payload.issue.node_id;
