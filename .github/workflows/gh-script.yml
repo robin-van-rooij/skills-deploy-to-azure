@@ -30,7 +30,7 @@ jobs:
         if: contains(github.event.issue.labels.*.name, 'bug')
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.MY_PAT }}
           script: |
             const projectId = "PVT_kwHODJ7fcc4A-Idx";
             const issueId = context.payload.issue.node_id;
