@@ -2,7 +2,7 @@ name: Learning GitHub Script
 
 permissions:
   issues: write
-  contents: read
+  contents: write
   
 on:
   issues:
